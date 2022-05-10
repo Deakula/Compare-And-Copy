@@ -4,7 +4,7 @@ A standalone script that compares the shallow contents of two directories, then 
 subdirectory within the first directory.
 
 ## Usage
-  compareandcopy.py [**-h**] [**-m**] [**-v**] **dir1** **dir2**
+    compareandcopy.py [-h] [-m] [-v] dir1 dir2
 
 ## Positional arguments
   ### **dir1**
@@ -16,6 +16,8 @@ subdirectory within the first directory.
   ### **-h**, **--help**
     Shows the help message and exits
   ### **-m**, **--move**
-    If this flag is set, any unique files found in the first directory will be moved instead of copied. (default: False)
+    If this flag is set, any unique files found in the first directory will be moved instead of copied.
+    default: False
   ### **-v**, **--verbose**
-    If this flag is set, the script will be more verbose. (default: False)
+    If this flag is set, the script will be more verbose.
+    default: False
