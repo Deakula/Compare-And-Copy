@@ -70,21 +70,27 @@ def main():
 
     unique = join(dir1, f"Unique_{uuid.uuid4()}")
 
-    secho("Creating directory comparison...\n" if verbose else "", fg="blue")
+    if verbose:
+        secho("Creating directory comparison...\n", fg="blue")
+
     common = [fi for fi in listdir(dir1) if isfile(join(dir1, fi))]
     cmp = filecmp.cmpfiles(dir1, dir2, common, shallow=True)
 
-    secho(
-        f"Creating unique directory \"{unique}\"...\n" if verbose else "",
-        fg="blue"
-    )
+    if verbose:
+        secho(
+            f"Creating unique directory \"{unique}\"...\n",
+            fg="blue"
+        )
 
     mkdir(unique)
 
     for fi in cmp[2]:
         if fi not in cmp[1]:
-            secho(f"{'Moving' if move else 'Copying'} {join(unique, fi)}...\n"
-                  if verbose else "", fg="blue")
+            if verbose:
+                secho(
+                    f"{'Moving' if move else 'Copying'} {join(unique, fi)}...\n",
+                    fg="blue"
+                )
             b4Aft = (join(dir1, fi), join(unique, fi))
 
             if move:
@@ -92,10 +98,11 @@ def main():
             else:
                 shutil.copyfile(*b4Aft)
 
-            secho(
-                f"{b4Aft[1]} {'moved' if move else 'copied'}!\n" if verbose else "",
-                fg="green"
-            )
+            if verbose:
+                secho(
+                    f"{b4Aft[1]} {'moved' if move else 'copied'}!\n",
+                    fg="green"
+                )
 
 
 if __name__ == '__main__':
