@@ -17,7 +17,5 @@ subdirectory within the first directory.
     Shows the help message and exits
   ### **-m**, **--move**
     If this flag is set, any unique files found in the first directory will be moved instead of copied.
-    default: False
   ### **-v**, **--verbose**
     If this flag is set, the script will be more verbose.
-    default: False
